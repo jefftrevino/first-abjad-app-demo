@@ -97,7 +97,8 @@ export default class CodeState extends React.Component {
       child => {
         return React.cloneElement(child, {
           messageCollections: this.state.messageCollections,
-          kernel: this.props.kernel
+          kernel: this.props.kernel,
+          text: child.props.text
         });
       }
     );

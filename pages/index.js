@@ -1,5 +1,6 @@
 import * as React from "react";
 import Debug from "../components/debug";
+import { Cells } from "@nteract/presentational-components";
 
 import PresentationCell from "../components/presentation-cell";
 import CodeState from "../components/code-state";
@@ -8,6 +9,7 @@ const messaging = require("@nteract/messaging");
 
 import { Kernel } from "@mybinder/host-cache";
 const { WideLogo } = require("@nteract/logos");
+import { Markdown } from "@nteract/markdown"
 
 class Editor extends React.Component {
   constructor(props) {
@@ -76,19 +78,23 @@ class Editor extends React.Component {
 }
 
 const Index = () => {
+  const firstText = "import abjad\n%load_ext abjadext.ipython"
+  const secondText = "note = abjad.Note()\nabjad.show(note)"
+
   return (
     <div className="app">
+    <Cells>
       <Kernel
-        repo="binder-examples/requirements"
-        kernelName="python3"
+      repo="Abjad/intensive"
+      kernelName="python3"
       >
         <Kernel.Consumer>
-          {kernel =>
+          {(kernel, firstText, secondText) =>
             kernel ? (
               <CodeState kernel={kernel}>
-                <Editor />
-                <PresentationCell />
-                <Debug />
+                {/*<Editor />*/}
+                <PresentationCell/>
+                {/*<Debug />*/}
               </CodeState>
             ) : (
               <div>No kernel yet</div>
@@ -96,6 +102,7 @@ const Index = () => {
           }
         </Kernel.Consumer>
       </Kernel>
+      </Cells>
       <style jsx>{`
         .app {
           padding: 30px;

@@ -15,7 +15,6 @@ import CodeMirrorEditor from "@nteract/editor";
 export default class PresentationCell extends React.Component {
   constructor(props) {
     super(props);
-
     this.submit = () => {
       console.log("Submitting", this.state.source);
       if (this.props.kernel && this.props.kernel.channels) {
@@ -27,12 +26,10 @@ export default class PresentationCell extends React.Component {
         console.warn(
           "Could not submit, kernel not connected"
         );
-        debugger;
       }
     };
-
     this.state = {
-      source: this.props.children,
+      source: "import abjad\n%load_ext abjadext.ipython\nnote = abjad.Note()\nabjad.show(note)",
       codeMirrorOptions: {
         extraKeys: {
           "Ctrl-Space": "autocomplete",
