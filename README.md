@@ -4,7 +4,7 @@ An nteract presentation cell communicates with a Jupyter kernel, running via Bin
 This is an [nCoda](https://ncodamusic.org/) project, created in collaboration with [nteract](https://nteract.io/).
 
 # Live Version
-Click in the presentation cell and press shift+enter to access [a live version of this web app](https://practical-react-ccmrudhuol.now.sh/).
+You can visit [a live version of this web app](https://practical-react-ccmrudhuol.now.sh/). To use it, click in the presentation cell and press shift+return; you should see a middle C appear as the cell's output.
 
 
 Want to make something like this yourself? You can get started with the jupyter-app-demo repo by following the instructions below:
